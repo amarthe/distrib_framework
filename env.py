@@ -86,6 +86,8 @@ class Cliff(DistributionalEnv):
         reward_step: the rewards given at each step (except cliff and end)
         reward_end: the reward given when reaching the end
         reward_fall: the reward given when falling off the cliff
+        right_proba: the probability of going to the chosen direction
+        retry: if True, when falling, the agent goes back to the beginning. Otherwise, it is stuck.
 
         space_shape: (nb_col, nb_line)
         action_shape: the number of actions
@@ -104,7 +106,6 @@ class Cliff(DistributionalEnv):
         self.retry = retry
         self.right_proba = right_proba
         self.wrong_proba = (1-right_proba)/3
-
 
         self._space_shape = (nb_col, nb_line)
         self._action_shape = (4)
